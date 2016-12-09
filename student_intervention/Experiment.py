@@ -46,7 +46,6 @@ y_train_300 = y_train[0:300]
 
 gaussian_clf = GaussianNB()
 decision_tree_clf = DecisionTreeClassifier(random_state=0)
-bagging_clf = BaggingClassifier(KNeighborsClassifier(),max_samples=0.5, max_features=0.5)
 adaboost_clf = AdaBoostClassifier(n_estimators=100)
 random_forest_clf = RandomForestClassifier(n_estimators=10)
 gradient_boosting_clf = GradientBoostingClassifier(n_estimators=100, learning_rate=1.0,max_depth=1, random_state=0)
@@ -54,8 +53,9 @@ KNearest_Neighbor_clf = KNeighborsClassifier(n_neighbors=3)
 Gradient_Descent_clf = SGDClassifier(loss="hinge", penalty="l2")
 Svm_clf = svm.SVC()
 Logistic_regression_clf = linear_model.LogisticRegression(C=1e5)
+bagging_clf = BaggingClassifier(base_estimator=gaussian_clf, max_samples=0.5, max_features=0.5)
 
-clf = Logistic_regression_clf
+clf = bagging_clf
 multi_predict_result(clf, X_train_100, y_train_100, X_test, y_test, 10)
 print ""
 multi_predict_result(clf, X_train_200, y_train_200, X_test, y_test, 10)

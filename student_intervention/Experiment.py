@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from Helper_functions import preprocess_features, train_predict, multi_predict_result
+from Helper_functions import preprocess_features, train_predict, multi_predict_result, predict_labels
 from sklearn.cross_validation import train_test_split
 from sklearn.naive_bayes import GaussianNB
 from sklearn.tree import DecisionTreeClassifier
@@ -52,8 +52,8 @@ gradient_boosting_clf = GradientBoostingClassifier(n_estimators=100, learning_ra
 KNearest_Neighbor_clf = KNeighborsClassifier(n_neighbors=3)
 Gradient_Descent_clf = SGDClassifier(loss="hinge", penalty="l2")
 Svm_clf = svm.SVC()
-Logistic_regression_clf = linear_model.LogisticRegression(C=1e5)
-bagging_clf = BaggingClassifier(base_estimator=gaussian_clf, max_samples=0.5, max_features=0.5)
+Logistic_regression_clf = linear_model.LogisticRegression()
+bagging_clf = BaggingClassifier(base_estimator=Logistic_regression_clf, max_samples=0.5, max_features=0.5)
 
 clf = bagging_clf
 multi_predict_result(clf, X_train_100, y_train_100, X_test, y_test, 10)

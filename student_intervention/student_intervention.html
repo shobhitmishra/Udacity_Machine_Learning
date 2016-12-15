@@ -11814,7 +11814,7 @@ This is a classification problem because we are tryin to put the students in one
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import libraries</span>
@@ -11866,14 +11866,14 @@ This is a classification problem because we are tryin to put the students in one
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Calculate number of students</span>
 <span class="n">n_students</span> <span class="o">=</span> <span class="n">student_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="c1"># TODO: Calculate number of features</span>
-<span class="n">n_features</span> <span class="o">=</span> <span class="n">student_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">n_features</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">student_data</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 
 <span class="c1"># TODO: Calculate passing students</span>
 <span class="n">n_passed</span> <span class="o">=</span> <span class="n">student_data</span><span class="p">[</span><span class="n">student_data</span><span class="p">[</span><span class="s1">&#39;passed&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;yes&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -11882,7 +11882,7 @@ This is a classification problem because we are tryin to put the students in one
 <span class="n">n_failed</span> <span class="o">=</span> <span class="n">student_data</span><span class="p">[</span><span class="n">student_data</span><span class="p">[</span><span class="s1">&#39;passed&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;no&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="c1"># TODO: Calculate graduation rate</span>
-<span class="n">grad_rate</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">n_passed</span><span class="p">)</span><span class="o">/</span><span class="n">n_students</span>
+<span class="n">grad_rate</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">n_passed</span><span class="p">)</span><span class="o">/</span><span class="n">n_students</span>
 
 <span class="c1"># Print the results</span>
 <span class="k">print</span> <span class="s2">&quot;Total number of students: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_students</span><span class="p">)</span>
@@ -11903,10 +11903,10 @@ This is a classification problem because we are tryin to put the students in one
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Total number of students: 395
-Number of features: 31
+Number of features: 30
 Number of students who passed: 265
 Number of students who failed: 130
-Graduation rate of the class: 0.67%
+Graduation rate of the class: 67.09%
 </pre>
 </div>
 </div>
@@ -11929,7 +11929,7 @@ Graduation rate of the class: 0.67%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Extract feature columns</span>
@@ -12011,7 +12011,7 @@ Feature values:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">preprocess_features</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
@@ -12082,7 +12082,7 @@ Feature values:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import any additional functionality you may need here</span>
@@ -12207,7 +12207,7 @@ Refernces: <a href="https://www.quora.com/What-are-the-advantages-of-different-c
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">train_classifier</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">):</span>
@@ -12280,7 +12280,7 @@ Refernces: <a href="https://www.quora.com/What-are-the-advantages-of-different-c
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import the three supervised learning models from sklearn</span>
@@ -12289,9 +12289,9 @@ Refernces: <a href="https://www.quora.com/What-are-the-advantages-of-different-c
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span>
 
 <span class="c1"># TODO: Initialize the three models</span>
-<span class="n">clf_A</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">()</span>
-<span class="n">clf_B</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">()</span>
-<span class="n">clf_C</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">clf_A</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">clf_B</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">clf_C</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 
 <span class="c1"># TODO: Set up the training set sizes</span>
 <span class="n">X_train_100</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">100</span><span class="p">]</span>
@@ -12334,50 +12334,50 @@ Refernces: <a href="https://www.quora.com/What-are-the-advantages-of-different-c
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Training a RandomForestClassifier using a training set size of 100. . .
-Trained model in 0.0140 seconds
+Trained model in 0.0210 seconds
 Made predictions in 0.0010 seconds.
-F1 score for training set: 0.9846.
+F1 score for training set: 0.9844.
 Made predictions in 0.0010 seconds.
-F1 score for test set: 0.7206.
+F1 score for test set: 0.7153.
 Training a RandomForestClassifier using a training set size of 200. . .
-Trained model in 0.0460 seconds
-Made predictions in 0.0000 seconds.
+Trained model in 0.0210 seconds
+Made predictions in 0.0010 seconds.
 F1 score for training set: 0.9964.
 Made predictions in 0.0010 seconds.
-F1 score for test set: 0.7536.
+F1 score for test set: 0.7857.
 Training a RandomForestClassifier using a training set size of 300. . .
-Trained model in 0.0140 seconds
-Made predictions in 0.0010 seconds.
+Trained model in 0.0150 seconds
+Made predictions in 0.0000 seconds.
 F1 score for training set: 0.9951.
 Made predictions in 0.0010 seconds.
-F1 score for test set: 0.7353.
+F1 score for test set: 0.8092.
 Training a SVC using a training set size of 100. . .
-Trained model in 0.0010 seconds
-Made predictions in 0.0000 seconds.
+Trained model in 0.0030 seconds
+Made predictions in 0.0010 seconds.
 F1 score for training set: 0.8777.
-Made predictions in 0.0000 seconds.
+Made predictions in 0.0010 seconds.
 F1 score for test set: 0.7746.
 Training a SVC using a training set size of 200. . .
-Trained model in 0.0020 seconds
+Trained model in 0.0030 seconds
 Made predictions in 0.0020 seconds.
 F1 score for training set: 0.8679.
 Made predictions in 0.0010 seconds.
 F1 score for test set: 0.7815.
 Training a SVC using a training set size of 300. . .
-Trained model in 0.0050 seconds
+Trained model in 0.0060 seconds
 Made predictions in 0.0040 seconds.
 F1 score for training set: 0.8761.
 Made predictions in 0.0010 seconds.
 F1 score for test set: 0.7838.
 Training a LogisticRegression using a training set size of 100. . .
-Trained model in 0.0210 seconds
-Made predictions in 0.0080 seconds.
+Trained model in 0.0270 seconds
+Made predictions in 0.0140 seconds.
 F1 score for training set: 0.8593.
 Made predictions in 0.0000 seconds.
 F1 score for test set: 0.7647.
 Training a LogisticRegression using a training set size of 200. . .
 Trained model in 0.0020 seconds
-Made predictions in 0.0010 seconds.
+Made predictions in 0.0020 seconds.
 F1 score for training set: 0.8562.
 Made predictions in 0.0000 seconds.
 F1 score for test set: 0.7914.
@@ -12423,24 +12423,24 @@ F1 score for test set: 0.8060.
 <tbody>
 <tr>
 <td style="text-align:center">100</td>
-<td style="text-align:center">0.0190</td>
+<td style="text-align:center">0.0210</td>
 <td style="text-align:center">0.0010</td>
 <td style="text-align:center">0.9844</td>
-<td style="text-align:center">0.7761</td>
+<td style="text-align:center">0.7153</td>
 </tr>
 <tr>
 <td style="text-align:center">200</td>
 <td style="text-align:center">0.0210</td>
 <td style="text-align:center">0.0010</td>
-<td style="text-align:center">0.9892</td>
-<td style="text-align:center">0.7943</td>
+<td style="text-align:center">0.9964</td>
+<td style="text-align:center">0.7857</td>
 </tr>
 <tr>
 <td style="text-align:center">300</td>
-<td style="text-align:center">0.0170</td>
+<td style="text-align:center">0.0150</td>
 <td style="text-align:center">0.0010</td>
-<td style="text-align:center">0.9976</td>
-<td style="text-align:center">0.7971</td>
+<td style="text-align:center">0.9951</td>
+<td style="text-align:center">0.8092</td>
 </tr>
 </tbody>
 </table>
@@ -12457,7 +12457,7 @@ F1 score for test set: 0.8060.
 <tbody>
 <tr>
 <td style="text-align:center">100</td>
-<td style="text-align:center">0.0020</td>
+<td style="text-align:center">0.0030</td>
 <td style="text-align:center">0.0010</td>
 <td style="text-align:center">0.8777</td>
 <td style="text-align:center">0.7746</td>
@@ -12465,14 +12465,14 @@ F1 score for test set: 0.8060.
 <tr>
 <td style="text-align:center">200</td>
 <td style="text-align:center">0.0030</td>
-<td style="text-align:center">0.0020</td>
+<td style="text-align:center">0.0010</td>
 <td style="text-align:center">0.8679</td>
 <td style="text-align:center">0.7815</td>
 </tr>
 <tr>
 <td style="text-align:center">300</td>
-<td style="text-align:center">0.0070</td>
-<td style="text-align:center">0.0020</td>
+<td style="text-align:center">0.006</td>
+<td style="text-align:center">0.001</td>
 <td style="text-align:center">0.8761</td>
 <td style="text-align:center">0.7838</td>
 </tr>
@@ -12491,7 +12491,7 @@ F1 score for test set: 0.8060.
 <tbody>
 <tr>
 <td style="text-align:center">100</td>
-<td style="text-align:center">0.0020</td>
+<td style="text-align:center">0.0027</td>
 <td style="text-align:center">0</td>
 <td style="text-align:center">0.8593</td>
 <td style="text-align:center">0.7647</td>
@@ -12505,7 +12505,7 @@ F1 score for test set: 0.8060.
 </tr>
 <tr>
 <td style="text-align:center">300</td>
-<td style="text-align:center">0.0040</td>
+<td style="text-align:center">0.003</td>
 <td style="text-align:center">0.0010</td>
 <td style="text-align:center">0.8468</td>
 <td style="text-align:center">0.8060</td>

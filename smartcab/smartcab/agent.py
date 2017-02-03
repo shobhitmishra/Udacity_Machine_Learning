@@ -25,7 +25,7 @@ class LearningAgent(Agent):
         ## TO DO ##
         ###########
         # Set any additional class parameters as needed      
-        self.a = 0.02 
+        self.a = 0.01
 
 
     def reset(self, trial, destination=None, testing=False):
@@ -71,8 +71,12 @@ class LearningAgent(Agent):
         """ The get_max_Q function is called when the agent is asked to find the
             maximum Q-value of all actions based on the 'state' the smartcab is in. """
         
-        actions = self.Q[state]        
-        maxQ = max(actions.iteritems(), key=operator.itemgetter(1))[0]
+        actions = self.Q[state]                
+        allMaxQ = [k for k,v in actions.iteritems() if v == max(actions.values())]
+        if(self.next_waypoint in allMaxQ):
+            return self.next_waypoint
+
+        maxQ = random.choice(allMaxQ)
         return maxQ 
 
 
@@ -89,9 +93,7 @@ class LearningAgent(Agent):
         if state not in self.Q:
             self.Q[state] = dict()
             for action in self.env.valid_actions:                         
-                self.Q[state][action] = 0.0
-
-        #print self.Q
+                self.Q[state][action] = 0.0        
         return
 
 
@@ -123,8 +125,6 @@ class LearningAgent(Agent):
         #   Use only the learning rate 'alpha' (do not use the discount factor 'gamma')
         if(self.learning):
             current_q_val = self.Q[state][action]
-            max_possible_q_value = max(self.Q[state][a] for a in self.env.valid_actions)
-
             new_q_value = (1 - self.alpha) * current_q_val + self.alpha * reward
             self.Q[state][action] = new_q_value
             return

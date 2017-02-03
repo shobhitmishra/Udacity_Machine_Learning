@@ -67,17 +67,16 @@ class LearningAgent(Agent):
         return state
 
 
-    def get_maxQ(self, state):
+    def get_action_with_maxQ(self, state):
         """ The get_max_Q function is called when the agent is asked to find the
             maximum Q-value of all actions based on the 'state' the smartcab is in. """
         
         actions = self.Q[state]                
-        allMaxQ = [k for k,v in actions.iteritems() if v == max(actions.values())]
-        if(self.next_waypoint in allMaxQ):
-            return self.next_waypoint
+        allMaxQ_actions = [k for k,v in actions.iteritems() if v == max(actions.values())]   
 
-        maxQ = random.choice(allMaxQ)
-        return maxQ 
+        # choose a random action if there are multiple actions with max q values.     
+        maxQ_action = random.choice(allMaxQ_actions)
+        return maxQ_action 
 
 
     def createQ(self, state):
@@ -90,10 +89,11 @@ class LearningAgent(Agent):
         # If it is not, create a new dictionary for that state
         #   Then, for each action available, set the initial Q-value to 0.0       
         
-        if state not in self.Q:
-            self.Q[state] = dict()
-            for action in self.env.valid_actions:                         
-                self.Q[state][action] = 0.0        
+        if(self.learning):
+            if state not in self.Q:
+                self.Q[state] = dict()
+                for action in self.env.valid_actions:                         
+                    self.Q[state][action] = 0.0        
         return
 
 
@@ -105,7 +105,7 @@ class LearningAgent(Agent):
         self.state = state
         self.next_waypoint = self.planner.next_waypoint()                
 
-        best_action = self.get_maxQ(state)
+        best_action = self.get_action_with_maxQ(state)
 
         if(random.uniform(0,1) < self.epsilon):
             best_action = random.choice(self.env.valid_actions)

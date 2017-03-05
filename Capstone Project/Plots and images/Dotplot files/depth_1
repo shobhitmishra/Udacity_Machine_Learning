@@ -1,0 +1,8 @@
+digraph Tree {
+node [shape=box] ;
+0 [label="total_pymnt_inv <= 3215.0298\ngini = 0.2478\nsamples = 27316\nvalue = [3958, 23358]"] ;
+1 [label="gini = 0.491\nsamples = 3573\nvalue = [1547, 2026]"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="gini = 0.1825\nsamples = 23743\nvalue = [2411, 21332]"] ;
+0 -> 2 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+}

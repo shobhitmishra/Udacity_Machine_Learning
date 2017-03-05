@@ -1,0 +1,32 @@
+digraph Tree {
+node [shape=box] ;
+0 [label="total_pymnt_inv <= 3215.0298\ngini = 0.2478\nsamples = 27316\nvalue = [3958, 23358]"] ;
+1 [label="funded_amnt_inv <= 3000.0017\ngini = 0.491\nsamples = 3573\nvalue = [1547, 2026]"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="total_pymnt_inv <= 1000.535\ngini = 0.3024\nsamples = 2483\nvalue = [461, 2022]"] ;
+1 -> 2 ;
+3 [label="gini = 0.4987\nsamples = 447\nvalue = [235, 212]"] ;
+2 -> 3 ;
+4 [label="gini = 0.1974\nsamples = 2036\nvalue = [226, 1810]"] ;
+2 -> 4 ;
+5 [label="funded_amnt_inv <= 3162.5\ngini = 0.0073\nsamples = 1090\nvalue = [1086, 4]"] ;
+1 -> 5 ;
+6 [label="gini = 0.3911\nsamples = 15\nvalue = [11, 4]"] ;
+5 -> 6 ;
+7 [label="gini = 0.0\nsamples = 1075\nvalue = [1075, 0]"] ;
+5 -> 7 ;
+8 [label="int_rate <= 16.075\ngini = 0.1825\nsamples = 23743\nvalue = [2411, 21332]"] ;
+0 -> 8 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+9 [label="total_pymnt_inv <= 5343.79\ngini = 0.1444\nsamples = 20137\nvalue = [1578, 18559]"] ;
+8 -> 9 ;
+10 [label="gini = 0.2816\nsamples = 3055\nvalue = [518, 2537]"] ;
+9 -> 10 ;
+11 [label="gini = 0.1164\nsamples = 17082\nvalue = [1060, 16022]"] ;
+9 -> 11 ;
+12 [label="total_pymnt_inv <= 11089.125\ngini = 0.3553\nsamples = 3606\nvalue = [833, 2773]"] ;
+8 -> 12 ;
+13 [label="gini = 0.4965\nsamples = 1116\nvalue = [511, 605]"] ;
+12 -> 13 ;
+14 [label="gini = 0.2252\nsamples = 2490\nvalue = [322, 2168]"] ;
+12 -> 14 ;
+}
